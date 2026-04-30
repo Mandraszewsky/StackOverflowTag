@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/BuildingBlocks/">
+    <Project Path="BuildingBlocks.MediatR/BuildingBlocks.MediatR.csproj" />
+  </Folder>
+  <Folder Name="/Tests/" />
+  <Project Path="StackOverflow.Application/StackOverflow.Application.csproj" />
+  <Project Path="StackOverflow.Domain/StackOverflow.Domain.csproj" />
+  <Project Path="StackOverflow.Infrastructure/StackOverflow.Infrastructure.csproj" />
+  <Project Path="StackOverflow.WebAPI/StackOverflow.WebAPI.csproj" />
+</Solution>
