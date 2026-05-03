@@ -1,4 +1,6 @@
-﻿using BuildingBlocks.MediatR.Abstractions.Query;
+﻿using AutoMapper;
+using BuildingBlocks.MediatR.Abstractions.Query;
+using StackOverflow.Application.Abstractions;
 using StackOverflow.Application.Tags.Dtos;
 
 namespace StackOverflow.Application.Tags.Queries;
@@ -11,10 +13,27 @@ public class GetTagsQuery : IQuery<PagedResultDto<TagResponseDto>>
     public string SortDirection { get; set; } = "asc";
 }
 
-public class GetTagsQueryHandler : IQueryHandler<GetTagsQuery, PagedResultDto<TagResponseDto>>
+public class GetTagsQueryHandler(
+    ITagRepository tagRepository,
+    IMapper mapper) : IQueryHandler<GetTagsQuery, PagedResultDto<TagResponseDto>>
 {
-    public Task<PagedResultDto<TagResponseDto>> Handle(GetTagsQuery request, CancellationToken cancellationToken)
+    public async Task<PagedResultDto<TagResponseDto>> Handle(GetTagsQuery request, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        var (items, totalCount) = await tagRepository.GetPagedAsync(
+            request.PageNumber,
+            request.PageSize,
+            request.SortBy,
+            request.SortDirection,
+            cancellationToken);
+
+        var dtos = mapper.Map<IEnumerable<TagResponseDto>>(items);
+
+        return new PagedResultDto<TagResponseDto>
+        {
+            Items = dtos,
+            TotalCount = totalCount,
+            PageNumber = request.PageNumber,
+            PageSize = request.PageSize
+        };
     }
 }
