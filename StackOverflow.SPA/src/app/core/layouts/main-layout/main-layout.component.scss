@@ -1,0 +1,31 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.toolbar-title {
+  margin-left: 8px;
+}
+
+.sidenav-container {
+  flex: 1;
+}
+
+.sidenav {
+  width: 220px;
+}
+
+.content {
+  padding: 24px;
+}
+
+.active-link {
+  background-color: rgba(0, 0, 0, 0.04);
+}

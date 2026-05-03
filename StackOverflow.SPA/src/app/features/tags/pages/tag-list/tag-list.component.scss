@@ -1,0 +1,57 @@
+.tag-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+.table-wrapper {
+  position: relative;
+
+  mat-progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    transition: opacity 0.2s;
+
+    &.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}
+
+.table-container {
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 24px;
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .mat-column-name {
+    width: 50%;
+  }
+
+  .mat-column-count {
+    width: 25%;
+  }
+
+  .mat-column-percentage {
+    width: 25%;
+  }
+}
+
+.no-data {
+  text-align: center;
+  padding: 24px;
+  color: rgba(0, 0, 0, 0.54);
+}
