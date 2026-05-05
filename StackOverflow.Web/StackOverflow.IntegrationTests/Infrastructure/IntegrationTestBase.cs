@@ -1,5 +1,6 @@
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Moq;
+using StackOverflow.Application.Abstractions;
 using StackOverflow.Domain.Entities;
 using StackOverflow.Infrastructure.Data;
 
@@ -19,6 +20,11 @@ public abstract class IntegrationTestBase : IClassFixture<CustomWebApplicationFa
     public async Task InitializeAsync()
     {
         await CleanDatabaseAsync();
+
+        Factory.ApiServiceMock.Reset();
+        Factory.ApiServiceMock
+            .Setup(s => s.FetchTagsAsync(It.IsAny<int>(), It.IsAny<CancellationToken>()))
+            .ReturnsAsync(new List<Tag>());
     }
 
     public Task DisposeAsync() => Task.CompletedTask;
