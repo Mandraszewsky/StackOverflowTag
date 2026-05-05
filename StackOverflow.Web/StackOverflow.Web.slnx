@@ -2,7 +2,10 @@
   <Folder Name="/BuildingBlocks/">
     <Project Path="BuildingBlocks.MediatR/BuildingBlocks.MediatR.csproj" />
   </Folder>
-  <Folder Name="/Tests/" />
+  <Folder Name="/Tests/">
+    <Project Path="StackOverflow.UnitTests/StackOverflow.UnitTests.csproj" />
+    <Project Path="StackOverflow.IntegrationTests/StackOverflow.IntegrationTests.csproj" />
+  </Folder>
   <Project Path="StackOverflow.Application/StackOverflow.Application.csproj" />
   <Project Path="StackOverflow.Domain/StackOverflow.Domain.csproj" />
   <Project Path="StackOverflow.Infrastructure/StackOverflow.Infrastructure.csproj" />
