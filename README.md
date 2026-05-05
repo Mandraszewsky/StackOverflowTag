@@ -29,8 +29,8 @@ docker compose up --build
 
 | Serwis | URL |
 |--------|-----|
-| Frontend (SPA) | http://localhost |
-| API (Swagger) | http://localhost/api/tags |
+| Frontend (SPA) | http://localhost/tags |
+| Swagger | http://localhost/swagger |
 | SQL Server | `localhost:1433` (user: `sa`, password: `SqlServer2022Pass!`) |
 
 ## Endpointy API
