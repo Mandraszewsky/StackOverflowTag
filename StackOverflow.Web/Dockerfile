@@ -7,6 +7,8 @@ COPY StackOverflow.Domain/StackOverflow.Domain.csproj StackOverflow.Domain/
 COPY StackOverflow.Application/StackOverflow.Application.csproj StackOverflow.Application/
 COPY StackOverflow.Infrastructure/StackOverflow.Infrastructure.csproj StackOverflow.Infrastructure/
 COPY StackOverflow.WebAPI/StackOverflow.WebAPI.csproj StackOverflow.WebAPI/
+COPY StackOverflow.UnitTests/StackOverflow.UnitTests.csproj StackOverflow.UnitTests/
+COPY StackOverflow.IntegrationTests/StackOverflow.IntegrationTests.csproj StackOverflow.IntegrationTests/
 RUN dotnet restore StackOverflow.Web.slnx
 
 COPY . .
